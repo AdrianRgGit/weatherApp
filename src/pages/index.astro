@@ -3,18 +3,67 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="main-container">
-    <h1 class="text-2xl text-white">Hola!</h1>
-    <h1 class="text-2xl text-gray">Hola!</h1>
-    <h1 class="text-2xl text-gray-dark">Hola!</h1>
+  <main class="main-container relative">
+    <!-- NOTE: Mirar a ver si lo puedo hacer mejor. Usar un padding aquí no me gusta -->
+    <section class="text-center pt-24 space-y-2">
+      <h1 class="text-8xl text-white">19º</h1>
+      <h2 class="text-3xl text-gray">Chilly</h2>
+    </section>
+
+    <section class="absolute bottom-0 w-full flex flex-col gap-y-2 p-4">
+      <article
+        class="flex justify-between border-b-gray-dark border-b text-white"
+      >
+        <p class="text-xl">Monday</p>
+
+        <div class="flex gap-x-4">
+          <p>T</p>
+          <p>S</p>
+          <p>N</p>
+        </div>
+      </article>
+
+      <article class="flex justify-between text-gray">
+        <div>
+          <p>Now</p>
+          <p>S</p>
+          <p>12º</p>
+        </div>
+
+        <div>
+          <p>Now</p>
+          <p>S</p>
+          <p>12º</p>
+        </div>
+
+        <div>
+          <p>Now</p>
+          <p>S</p>
+          <p>12º</p>
+        </div>
+
+        <div>
+          <p>Now</p>
+          <p>S</p>
+          <p>12º</p>
+        </div>
+
+        <div>
+          <p>Now</p>
+          <p>S</p>
+          <p>12º</p>
+        </div>
+      </article>
+    </section>
   </main>
 </Layout>
 
 <style>
   .main-container {
     height: 100vh;
-    background-image: url("./public/images/evening.jpg");
-    background-size: cover; 
+    background-image: url("./images/chilly.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
   }
 </style>
