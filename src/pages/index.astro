@@ -1,9 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-
 ---
 
 <Layout title="Welcome to Astro.">
-  <h1 class="text-2xl text-neutral-500">Hola!</h1>
+  <main class="main-container">
+    <h1 class="text-2xl text-white">Hola!</h1>
+    <h1 class="text-2xl text-gray">Hola!</h1>
+    <h1 class="text-2xl text-gray-dark">Hola!</h1>
+  </main>
 </Layout>
+
+<style>
+  .main-container {
+    height: 100vh;
+    background-image: url("./public/images/evening.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+  }
+</style>
