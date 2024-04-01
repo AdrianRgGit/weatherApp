@@ -4,15 +4,23 @@ import SunIcon from "../components/icons/SunIcon.astro";
 import RainIcon from "../components/icons/RainIcon.astro";
 import LightningIcon from "../components/icons/LightningIcon.astro";
 
+import weatherApi from "../services/weather.service";
+
 import Layout from "../layouts/Layout.astro";
+
+const weather = await weatherApi();
+
+if (!weather) {
+  return null;
+}
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="main-container relative">
     <!-- NOTE: Mirar a ver si lo puedo hacer mejor. Usar un padding aquí no me gusta -->
     <section class="text-center pt-24 space-y-2">
-      <h1 class="text-8xl text-white">19º</h1>
-      <h2 class="text-3xl text-white">Chilly</h2>
+      <h1 class="text-8xl text-white">{weather.current.temp_c}º</h1>
+      <h2 class="text-3xl text-white">{weather.location.name}</h2>
     </section>
 
     <section
