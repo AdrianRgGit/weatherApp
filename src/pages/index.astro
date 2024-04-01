@@ -3,8 +3,10 @@ import weatherApi from "../services/weather.service";
 
 import Layout from "../layouts/Layout.astro";
 import WeatherDays from "../components/WeatherDays.astro";
+import getDayOfWeek from "../assets/getDayOfWeek";
 
 const weather = await weatherApi();
+const localDate = weather.location.localtime.split(" ")[0];
 const localTime = weather.location.localtime.split(" ")[1];
 
 if (!weather) {
@@ -45,7 +47,7 @@ const timeOfDay = getTime(localTime);
       <article
         class="flex justify-between border-b-gray-dark border-b text-white"
       >
-        <p class="text-xl">Monday</p>
+        <p class="text-xl">{getDayOfWeek(localDate)}</p>
 
         <p>{weather.location.localtime.split(" ")[0]}</p>
       </article>
@@ -57,7 +59,9 @@ const timeOfDay = getTime(localTime);
 
 <script>
   const setBackground = () => {
-    const mainContainer = document.querySelector(".main-container") as HTMLElement;
+    const mainContainer = document.querySelector(
+      ".main-container"
+    ) as HTMLElement;
     const timeOfDay = mainContainer?.dataset.timeOfDay;
 
     if (timeOfDay === "day") {

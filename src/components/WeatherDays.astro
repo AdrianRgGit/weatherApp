@@ -1,12 +1,13 @@
 ---
 import forecastWeather from "../services/forecast.service";
 
+import getDayOfWeek from "../assets/getDayOfWeek";
+
 import CloudIcon from "./icons/CloudIcon.astro";
 import LightningIcon from "./icons/LightningIcon.astro";
 import RainIcon from "./icons/RainIcon.astro";
 import SunIcon from "./icons/SunIcon.astro";
 import FogIcon from "./icons/FogIcon.astro";
-import PartlyCloudy from "./icons/PartlyCloudy.astro";
 import SnowIcon from "./icons/SnowIcon.astro";
 
 const forecast = await forecastWeather();
@@ -78,15 +79,17 @@ const renderIcon = (weatherCode: number) => {
       return SunIcon;
   }
 };
+
+// const day = getDayOfWeek(localTime);
 ---
 
 <article class="flex justify-between text-gray">
   {
-    forecastDays.map((forecastDay: any) => {
+    forecastDays.slice(1).map((forecastDay: any) => {
       const Icon = renderIcon(forecastDay.day.condition.code);
       return (
         <div class="flex flex-col items-center gap-y-1">
-          <p>Tue.</p>
+          <p>{getDayOfWeek(forecastDay.date)}</p>
           {Icon && <Icon width={25} height={25} />}
           <p>{forecastDay.day.avgtemp_c}º</p>
         </div>
