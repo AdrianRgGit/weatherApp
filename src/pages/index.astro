@@ -12,10 +12,12 @@ import Layout from "../layouts/Layout.astro";
     <!-- NOTE: Mirar a ver si lo puedo hacer mejor. Usar un padding aquí no me gusta -->
     <section class="text-center pt-24 space-y-2">
       <h1 class="text-8xl text-white">19º</h1>
-      <h2 class="text-3xl text-gray">Chilly</h2>
+      <h2 class="text-3xl text-white">Chilly</h2>
     </section>
 
-    <section class="absolute bottom-0 w-full flex flex-col gap-y-2 p-4">
+    <section
+      class="absolute bottom-0 w-full flex flex-col gap-y-2 p-4 bg-neutral-800/50"
+    >
       <article
         class="flex justify-between border-b-gray-dark border-b text-white"
       >
@@ -66,7 +68,7 @@ import Layout from "../layouts/Layout.astro";
 <style>
   .main-container {
     height: 100vh;
-    background-image: url("./images/chilly.jpg");
+    background-image: url("./images/sunny.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
