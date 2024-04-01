@@ -1,4 +1,6 @@
 ---
+import CloudIcon from "../components/icons/CloudIcon.astro";
+import SunIcon from "../components/icons/SunIcon.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -24,34 +26,34 @@ import Layout from "../layouts/Layout.astro";
       </article>
 
       <article class="flex justify-between text-gray">
-        <div>
-          <p>Now</p>
-          <p>S</p>
+        <div class="flex flex-col items-center gap-y-1">
+          <p>Tue.</p>
+          <CloudIcon width="25" height="25" />
           <p>12º</p>
         </div>
 
-        <div>
-          <p>Now</p>
-          <p>S</p>
+        <div class="flex flex-col items-center gap-y-1">
+          <p>Wed.</p>
+          <CloudIcon width="25" height="25" />
+          <p>8º</p>
+        </div>
+
+        <div class="flex flex-col items-center gap-y-1">
+          <p>Thu.</p>
+          <SunIcon width="25" height="25" />
           <p>12º</p>
         </div>
 
-        <div>
-          <p>Now</p>
-          <p>S</p>
-          <p>12º</p>
+        <div class="flex flex-col items-center gap-y-1">
+          <p>Fri.</p>
+          <SunIcon width="25" height="25" />
+          <p>15º</p>
         </div>
 
-        <div>
-          <p>Now</p>
-          <p>S</p>
-          <p>12º</p>
-        </div>
-
-        <div>
-          <p>Now</p>
-          <p>S</p>
-          <p>12º</p>
+        <div class="flex flex-col items-center gap-y-1">
+          <p>Sat.</p>
+          <SunIcon width="25" height="25" />
+          <p>20º</p>
         </div>
       </article>
     </section>
