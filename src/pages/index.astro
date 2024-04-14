@@ -1,9 +1,98 @@
 ---
+import weatherApi from "../services/weather.service";
+
 import Layout from "../layouts/Layout.astro";
+import WeatherDays from "../components/WeatherDays.astro";
+import getDayOfWeek from "../assets/getDayOfWeek";
 
+const weather = await weatherApi();
+const localDate = weather.location.localtime.split(" ")[0];
+const localTime = weather.location.localtime.split(" ")[1];
 
+if (!weather) {
+  return null;
+}
+
+const getTime = (localtime: string) => {
+  const hours = parseInt(localtime.split(":")[0]);
+
+  const sunriseHour = 6;
+  const sunsetHour = 18;
+  const nightHour = 21;
+
+  if (hours >= sunriseHour && hours < sunsetHour) {
+    return "day";
+  } else if (hours >= sunsetHour && hours < nightHour) {
+    return "sunset";
+  } else {
+    return "night";
+  }
+};
+
+const timeOfDay = getTime(localTime);
 ---
 
 <Layout title="Welcome to Astro.">
-  <h1 class="text-2xl text-neutral-500">Hola!</h1>
+  <!-- NOTE: Para pasarle a la etiqueta script de abajo la hora, se la he de pasar de esta manera accediendo al valor del atributo utilizando dataset -->
+  <main class="main-container relative" data-time-of-day={timeOfDay}>
+    <!-- NOTE: Mirar a ver si lo puedo hacer mejor. Usar un padding aquí no me gusta -->
+    <section class="text-center pt-24 space-y-2">
+      <h1 class="text-8xl text-white">{weather.current.temp_c}º</h1>
+      <h2 class="text-3xl text-white">{weather.location.name}</h2>
+    </section>
+
+    <section
+      class="absolute bottom-0 w-full flex flex-col gap-y-2 p-4 bg-neutral-800/50"
+    >
+      <article
+        class="flex justify-between border-b-gray-dark border-b text-white"
+      >
+        <p class="text-xl">{getDayOfWeek(localDate)}</p>
+
+        <p>{weather.location.localtime.split(" ")[0]}</p>
+      </article>
+
+      <WeatherDays />
+    </section>
+  </main>
 </Layout>
+
+<script>
+  const setBackground = () => {
+    const mainContainer = document.querySelector(
+      ".main-container"
+    ) as HTMLElement;
+    const timeOfDay = mainContainer?.dataset.timeOfDay;
+
+    if (timeOfDay === "day") {
+      mainContainer?.classList.add("day");
+    } else if (timeOfDay === "sunset") {
+      mainContainer?.classList.add("sunset");
+    } else {
+      mainContainer?.classList.add("night");
+    }
+  };
+
+  setBackground();
+</script>
+
+<style>
+  .main-container {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .main-container.day {
+    background-image: url("./images/day.jpg");
+  }
+
+  .main-container.sunset {
+    background-image: url("./images/sunset.jpg");
+  }
+
+  .main-container.night {
+    background-image: url("./images/night.jpg");
+  }
+</style>

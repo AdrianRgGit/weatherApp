@@ -1,55 +1,33 @@
-# Astro Starter Kit: Basics
+# Weather App
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is a simple weather application that provides the current weather and a 5-day forecast for the city of Valencia. It utilizes the WeatherAPI to fetch weather data. Keep in mind that I have only programmed it for mobile devices because I have planned it in a way that the user can quickly see what the weather is going to do. I also added to it to change the background according to the current time.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Provides current weather conditions in Valencia.
+- Offers a 5-day forecast for Valencia.
+- Easy-to-use interface.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Usage
 
-## 🚀 Project Structure
+To use this application, simply clone the repository and open the `index.html` file in a web browser. The weather information for Valencia will be displayed automatically.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Future Improvements
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Currently, the application only supports fetching weather data for Valencia. In the future, I plan to enhance the project by allowing users to select their preferred geographical location and receive weather information for that city.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Technologies Used
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- [Astro](https://astro.build/)
+- [TailwindCSS](https://tailwindcss.com/)
+- HTML
+- CSS
+- JavaScript
+- WeatherAPI
 
-Any static assets, like images, can be placed in the `public/` directory.
+## How to Contribute
 
-## 🧞 Commands
+If you would like to contribute to this project, feel free to fork the repository and submit a pull request with your changes.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# wheaterApp
+## View
+![Weather App Screenshot](./public/images/weatherAppView.png)
